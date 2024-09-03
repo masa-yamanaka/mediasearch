@@ -15,7 +15,6 @@ const MainPage: React.FC = () => {
     <Box className="masaclass" sx={{ display: "flex" }}>
       <Sidebar />
       <Box component="main" sx={{ p: 3 }}>
-        {/* Render the Typography only on the home page */}
         {isHomePage && (
           <Typography variant="h1">This is the home page</Typography>
         )}
