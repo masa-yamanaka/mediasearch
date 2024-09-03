@@ -13,7 +13,7 @@ const Programs: React.FC = () => {
   return (
     <Container maxWidth="sm" style={{ marginTop: "50px" }}>
       <Typography variant="h4" gutterBottom>
-        Programs
+        番組連携
       </Typography>
       <List>
         {programs.map((program, index) => (

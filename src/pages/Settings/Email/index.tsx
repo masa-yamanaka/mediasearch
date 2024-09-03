@@ -5,7 +5,7 @@ const EmailSettings: React.FC = () => {
   return (
     <Container maxWidth="sm">
       <Typography variant="h4" gutterBottom>
-        Email Settings
+        メールアドレス設定
       </Typography>
       <TextField
         label="Email Address"
