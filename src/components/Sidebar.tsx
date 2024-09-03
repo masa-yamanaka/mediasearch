@@ -1,6 +1,12 @@
 // src/components/Sidebar.tsx
 import React, { useState } from "react";
-import { Drawer, List, ListItem, ListItemText, Collapse } from "@mui/material";
+import {
+  Drawer,
+  List,
+  ListItemText,
+  Collapse,
+  ListItemButton,
+} from "@mui/material";
 import { Link } from "react-router-dom";
 import { ExpandLess, ExpandMore } from "@mui/icons-material";
 
@@ -27,42 +33,40 @@ const Sidebar: React.FC = () => {
       anchor="left"
     >
       <List>
-        <ListItem button component={Link} to="/">
+        <ListItemButton component={Link} to="/">
           <ListItemText primary="Home" />
-        </ListItem>
-        <ListItem button onClick={handleSettingsClick}>
+        </ListItemButton>
+        <ListItemButton onClick={handleSettingsClick}>
           <ListItemText primary="Settings" />
           {openSettings ? <ExpandLess /> : <ExpandMore />}
-        </ListItem>
+        </ListItemButton>
         <Collapse in={openSettings} timeout="auto" unmountOnExit>
           <List component="div" disablePadding>
-            <ListItem
-              button
+            <ListItemButton
               component={Link}
               to="/settings/email"
               sx={{ pl: 4 }}
             >
               <ListItemText primary="Email Settings" />
-            </ListItem>
-            <ListItem
-              button
+            </ListItemButton>
+            <ListItemButton
               component={Link}
               to="/settings/account"
               sx={{ pl: 4 }}
             >
               <ListItemText primary="Account Settings" />
-            </ListItem>
+            </ListItemButton>
           </List>
         </Collapse>
-        <ListItem button component={Link} to="/programs">
+        <ListItemButton component={Link} to="/programs">
           <ListItemText primary="Programs" />
-        </ListItem>
-        <ListItem button component={Link} to="/reports">
+        </ListItemButton>
+        <ListItemButton component={Link} to="/reports">
           <ListItemText primary="Report List" />
-        </ListItem>
-        <ListItem button component={Link} to="/music">
+        </ListItemButton>
+        <ListItemButton component={Link} to="/music">
           <ListItemText primary="Music" />
-        </ListItem>
+        </ListItemButton>
       </List>
     </Drawer>
   );

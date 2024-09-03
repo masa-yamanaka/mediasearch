@@ -3,8 +3,8 @@ import {
   Container,
   Typography,
   List,
-  ListItem,
   ListItemText,
+  ListItemButton,
 } from "@mui/material";
 
 const Programs: React.FC = () => {
@@ -17,9 +17,9 @@ const Programs: React.FC = () => {
       </Typography>
       <List>
         {programs.map((program, index) => (
-          <ListItem key={index} button>
+          <ListItemButton key={index}>
             <ListItemText primary={program} />
-          </ListItem>
+          </ListItemButton>
         ))}
       </List>
     </Container>
