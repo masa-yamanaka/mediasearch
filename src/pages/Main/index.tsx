@@ -1,5 +1,3 @@
-// src/pages/Main/index.tsx
-
 import React from "react";
 import { Box, Typography } from "@mui/material";
 import Sidebar from "../../components/Sidebar";
@@ -12,7 +10,7 @@ const MainPage: React.FC = () => {
   const isHomePage = location.pathname === "/";
 
   return (
-    <Box className="masaclass" sx={{ display: "flex" }}>
+    <Box sx={{ display: "flex" }}>
       <Sidebar />
       <Box component="main" sx={{ p: 3 }}>
         {isHomePage && (

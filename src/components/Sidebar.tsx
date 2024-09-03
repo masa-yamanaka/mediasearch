@@ -7,17 +7,31 @@ import {
   Collapse,
   ListItemButton,
   Box,
+  ListItemIcon,
 } from "@mui/material";
 import { Link } from "react-router-dom";
 import { ExpandLess, ExpandMore } from "@mui/icons-material";
+import HomeIcon from "@mui/icons-material/Home";
+import TvIcon from "@mui/icons-material/Tv";
+import SettingsIcon from "@mui/icons-material/Settings";
+import ListIcon from "@mui/icons-material/List";
+import FeedIcon from "@mui/icons-material/Feed";
+import AssignmentTurnedInIcon from "@mui/icons-material/AssignmentTurnedIn";
+import LibraryMusicIcon from "@mui/icons-material/LibraryMusic";
+import Divider from "@mui/material/Divider";
 
 const drawerWidth = 240;
 
 const Sidebar: React.FC = () => {
   const [openSettings, setOpenSettings] = useState(false);
+  const [openPrograms, setOpenPrograms] = useState(false);
 
   const handleSettingsClick = () => {
     setOpenSettings(!openSettings);
+  };
+
+  const handleProgramsClick = () => {
+    setOpenPrograms(!openPrograms);
   };
 
   return (
@@ -38,10 +52,19 @@ const Sidebar: React.FC = () => {
       <Box sx={{ flexGrow: 1 }}>
         <List>
           <ListItemButton component={Link} to="/">
-            <ListItemText primary="Home" />
+            <ListItemIcon>
+              <HomeIcon />
+            </ListItemIcon>
+            <ListItemText primary="ホーム" />
           </ListItemButton>
+          <Divider />
+
+          {/* Settings Section */}
           <ListItemButton onClick={handleSettingsClick}>
-            <ListItemText primary="Settings" />
+            <ListItemIcon>
+              <SettingsIcon />
+            </ListItemIcon>
+            <ListItemText primary="各種設定" />
             {openSettings ? <ExpandLess /> : <ExpandMore />}
           </ListItemButton>
           <Collapse in={openSettings} timeout="auto" unmountOnExit>
@@ -51,28 +74,66 @@ const Sidebar: React.FC = () => {
                 to="/settings/email"
                 sx={{ pl: 4 }}
               >
-                <ListItemText primary="Email Settings" />
+                <ListItemText primary="メールアドレス設定" />
               </ListItemButton>
               <ListItemButton
                 component={Link}
                 to="/settings/account"
                 sx={{ pl: 4 }}
               >
-                <ListItemText primary="Account Settings" />
+                <ListItemText primary="アカウント管理" />
               </ListItemButton>
             </List>
           </Collapse>
-          <ListItemButton component={Link} to="/programs">
-            <ListItemText primary="Programs" />
+
+          {/* Programs Section */}
+          <ListItemButton onClick={handleProgramsClick}>
+            <ListItemIcon>
+              <TvIcon />
+            </ListItemIcon>
+            <ListItemText primary="番組連携" />
+            {openPrograms ? <ExpandLess /> : <ExpandMore />}
           </ListItemButton>
+          <Collapse in={openPrograms} timeout="auto" unmountOnExit>
+            <List component="div" disablePadding>
+              <ListItemButton
+                component={Link}
+                to="/programs/information"
+                sx={{ pl: 4 }}
+              >
+                <ListItemIcon>
+                  <FeedIcon />
+                </ListItemIcon>
+                <ListItemText primary="番組情報連携" />
+              </ListItemButton>
+              <ListItemButton
+                component={Link}
+                to="/programs/list"
+                sx={{ pl: 4 }}
+              >
+                <ListItemIcon>
+                  <ListIcon />
+                </ListItemIcon>
+                <ListItemText primary="番組確認一覧連携" />
+              </ListItemButton>
+            </List>
+          </Collapse>
+
           <ListItemButton component={Link} to="/reports">
-            <ListItemText primary="Report List" />
+            <ListItemIcon>
+              <AssignmentTurnedInIcon />
+            </ListItemIcon>
+            <ListItemText primary="報告管理リスト" />
           </ListItemButton>
           <ListItemButton component={Link} to="/music">
-            <ListItemText primary="Music" />
+            <ListItemIcon>
+              <LibraryMusicIcon />
+            </ListItemIcon>
+            <ListItemText primary="楽曲連携" />
           </ListItemButton>
         </List>
       </Box>
+
       <Box sx={{ p: 2 }}>
         <List>
           <ListItemButton component={Link} to="/login">
