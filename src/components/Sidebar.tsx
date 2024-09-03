@@ -6,6 +6,7 @@ import {
   ListItemText,
   Collapse,
   ListItemButton,
+  Box,
 } from "@mui/material";
 import { Link } from "react-router-dom";
 import { ExpandLess, ExpandMore } from "@mui/icons-material";
@@ -27,47 +28,58 @@ const Sidebar: React.FC = () => {
         "& .MuiDrawer-paper": {
           width: drawerWidth,
           boxSizing: "border-box",
+          display: "flex",
+          flexDirection: "column",
         },
       }}
       variant="permanent"
       anchor="left"
     >
-      <List>
-        <ListItemButton component={Link} to="/">
-          <ListItemText primary="Home" />
-        </ListItemButton>
-        <ListItemButton onClick={handleSettingsClick}>
-          <ListItemText primary="Settings" />
-          {openSettings ? <ExpandLess /> : <ExpandMore />}
-        </ListItemButton>
-        <Collapse in={openSettings} timeout="auto" unmountOnExit>
-          <List component="div" disablePadding>
-            <ListItemButton
-              component={Link}
-              to="/settings/email"
-              sx={{ pl: 4 }}
-            >
-              <ListItemText primary="Email Settings" />
-            </ListItemButton>
-            <ListItemButton
-              component={Link}
-              to="/settings/account"
-              sx={{ pl: 4 }}
-            >
-              <ListItemText primary="Account Settings" />
-            </ListItemButton>
-          </List>
-        </Collapse>
-        <ListItemButton component={Link} to="/programs">
-          <ListItemText primary="Programs" />
-        </ListItemButton>
-        <ListItemButton component={Link} to="/reports">
-          <ListItemText primary="Report List" />
-        </ListItemButton>
-        <ListItemButton component={Link} to="/music">
-          <ListItemText primary="Music" />
-        </ListItemButton>
-      </List>
+      <Box sx={{ flexGrow: 1 }}>
+        <List>
+          <ListItemButton component={Link} to="/">
+            <ListItemText primary="Home" />
+          </ListItemButton>
+          <ListItemButton onClick={handleSettingsClick}>
+            <ListItemText primary="Settings" />
+            {openSettings ? <ExpandLess /> : <ExpandMore />}
+          </ListItemButton>
+          <Collapse in={openSettings} timeout="auto" unmountOnExit>
+            <List component="div" disablePadding>
+              <ListItemButton
+                component={Link}
+                to="/settings/email"
+                sx={{ pl: 4 }}
+              >
+                <ListItemText primary="Email Settings" />
+              </ListItemButton>
+              <ListItemButton
+                component={Link}
+                to="/settings/account"
+                sx={{ pl: 4 }}
+              >
+                <ListItemText primary="Account Settings" />
+              </ListItemButton>
+            </List>
+          </Collapse>
+          <ListItemButton component={Link} to="/programs">
+            <ListItemText primary="Programs" />
+          </ListItemButton>
+          <ListItemButton component={Link} to="/reports">
+            <ListItemText primary="Report List" />
+          </ListItemButton>
+          <ListItemButton component={Link} to="/music">
+            <ListItemText primary="Music" />
+          </ListItemButton>
+        </List>
+      </Box>
+      <Box sx={{ p: 2 }}>
+        <List>
+          <ListItemButton component={Link} to="/login">
+            <ListItemText primary="Login" />
+          </ListItemButton>
+        </List>
+      </Box>
     </Drawer>
   );
 };
