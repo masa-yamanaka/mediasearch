@@ -6,16 +6,33 @@ import { Outlet, useLocation } from "react-router-dom";
 const MainPage: React.FC = () => {
   const location = useLocation();
 
-  // Determine if the current route is the home page
-  const isHomePage = location.pathname === "/";
+  // Map paths to titles
+  const titles: { [key: string]: string } = {
+    "/": "Home Page",
+    "/programs": "Programs",
+    "/programs/list": "番組確認一覧連携",
+    "/settings": "Settings",
+    "/settings/email": "Email Settings",
+    "/settings/account": "Account Settings",
+    "/reports": "Report List",
+    "/music": "Music",
+    "/login": "Login",
+  };
+
+  // Get the current title based on the location path
+  // Default to "Page" if not found
+  const title = titles[location.pathname] || "Page";
 
   return (
     <Box sx={{ display: "flex" }}>
       <Sidebar />
       <Box component="main" sx={{ p: 3 }}>
-        {isHomePage && (
-          <Typography variant="h1">This is the home page</Typography>
-        )}
+        <Typography
+          variant="h1"
+          sx={{ fontSize: "2rem", fontWeight: "bold", mb: 4 }}
+        >
+          {title}
+        </Typography>
         <Outlet />
       </Box>
     </Box>
