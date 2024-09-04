@@ -13,7 +13,7 @@ import ProgramsList from "./pages/Programs/List";
 
 const App: React.FC = () => {
   return (
-    <Router basename="/mediasearch-app/">
+    <Router>
       <Routes>
         <Route path="/login" element={<Login />} />
         <Route path="/" element={<MainPage />}>
