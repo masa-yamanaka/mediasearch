@@ -1,9 +1,9 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 
-const base = "/mediasearch-app/";
+// const base = "/mediasearch-app/";
 
 export default defineConfig({
-  base,
+  // base,
   plugins: [react()],
 });
