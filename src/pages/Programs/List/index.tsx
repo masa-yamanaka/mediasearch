@@ -117,7 +117,7 @@ const ProgramsList: React.FC = () => {
                     </Button>
                     <Button
                       variant="contained"
-                      color="secondary"
+                      color="primary"
                       size="small"
                       onClick={() => handleOpenModal(program, "Edit")}
                       sx={{ whiteSpace: "nowrap", fontWeight: "bold" }}
@@ -135,7 +135,7 @@ const ProgramsList: React.FC = () => {
                     </Button>
                     <Button
                       variant="contained"
-                      color="warning"
+                      color="primary"
                       size="small"
                       onClick={() => handleOpenModal(program, "Undo")}
                       sx={{ whiteSpace: "nowrap", fontWeight: "bold" }}
@@ -144,7 +144,7 @@ const ProgramsList: React.FC = () => {
                     </Button>
                     <Button
                       variant="contained"
-                      color="success"
+                      color="primary"
                       size="small"
                       onClick={() => handleOpenModal(program, "Confirm")}
                       sx={{ whiteSpace: "nowrap", fontWeight: "bold" }}
